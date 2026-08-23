@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #FFF8F0;
+  color: #1F2937;
+  overflow-x: hidden;
+  font-family: var(--font-inter);
+}
+
+/* Custom Paper Texture Effect for Letter Section */
+.paper-texture {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(#E5E7EB 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #F4A93B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E09426;
+}
