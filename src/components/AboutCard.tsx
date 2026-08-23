@@ -1,96 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Moon, Smile, ShieldAlert, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
 
 export default function AboutCard() {
   const traits = [
     {
-      icon: <Moon className="w-5 h-5 text-amber-500" />,
       title: "Sleep Enthusiast 😴",
-      desc: "There are literally 10+ videos of him sleeping. Napping is not a hobby, it's a full-time profession.",
+      desc: "10+ sleeping videos exist. Napping is a full-time profession.",
     },
     {
-      icon: <Smile className="w-5 h-5 text-red-500" />,
       title: "The Dying Laugh 💀",
-      desc: "Can't laugh quietly to save his life. When something's funny, he sounds like he's gasping for air.",
+      desc: "Can't laugh quietly. Sounds like he's gasping for air when something is funny.",
     },
     {
-      icon: <ShieldAlert className="w-5 h-5 text-orange-500" />,
-      title: "Rule #1: Do Not Wake Him 🚫",
-      desc: "Waking him up is a dangerous move. Proceed only at your own risk.",
+      title: "Do Not Wake Him 🚫",
+      desc: "Waking him up is high risk. Proceed at your own caution.",
     },
     {
-      icon: <UtensilsCrossed className="w-5 h-5 text-emerald-500" />,
-      title: "No Disappointments 🍔",
-      desc: "Hates restaurant disappointment with a passion. If in doubt, burger and chips it is.",
+      title: "Burger & Chips Only 🍔",
+      desc: "Hates restaurant disappointment. Always orders burger and chips.",
     },
   ];
 
   return (
-    <section className="py-16 px-4 max-w-5xl mx-auto">
+    <section className="py-14 px-4 max-w-5xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-amber-100/80 relative overflow-hidden"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-[#121826] rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl"
       >
-        {/* Background accent blobs */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-100 rounded-full blur-2xl opacity-60 pointer-events-none" />
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-100 rounded-full blur-2xl opacity-60 pointer-events-none" />
-
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Avatar / Photo Placeholder */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center text-center">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-brand-gold shadow-lg group">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* Portrait */}
+          <div className="md:col-span-5 flex flex-col items-center text-center">
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-md">
               <Image
                 src="/images/portrait.jpg"
-                alt="Wandeme Portrait Placeholder"
+                alt="Wandeme Ipfi"
                 fill
-                sizes="(max-width: 768px) 100vw, 300px"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 250px"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent flex items-end justify-center p-4">
-                <span className="text-white text-xs font-semibold uppercase tracking-wider bg-brand-gold/80 backdrop-blur-sm px-3 py-1 rounded-full">
-                  The Man of the Hour
-                </span>
-              </div>
             </div>
-            <h2 className="mt-4 text-2xl font-bold text-brand-navy font-heading">
-              Wandeme Ipfi Mamatsharaga
-            </h2>
-            <p className="text-sm text-gray-500 font-medium">Venda Pride • Nap Master • Car Guy</p>
+            <h2 className="mt-4 text-2xl font-bold text-white">Wandeme Ipfi</h2>
+            <p className="text-xs text-slate-400 mt-1 font-medium">
+              Venda Pride &bull; Car Enthusiast &bull; Nap Master
+            </p>
           </div>
 
-          {/* Bio & Quirks List */}
-          <div className="md:col-span-7 space-y-6">
+          {/* Bio Quirks Grid */}
+          <div className="md:col-span-7 space-y-5">
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-brand-gold">
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
                 Personality & Quirks
-              </h3>
-              <h4 className="text-3xl font-extrabold text-brand-navy font-heading mt-1">
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
                 Who is Wandeme?
-              </h4>
+              </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {traits.map((trait, index) => (
-                <motion.div
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {traits.map((trait) => (
+                <div
                   key={trait.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-brand-cream/60 p-4 rounded-2xl border border-amber-100/60 hover:shadow-md transition-shadow"
+                  className="bg-[#090D16] p-4 rounded-xl border border-slate-800/80"
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    {trait.icon}
-                    <h5 className="font-bold text-brand-navy text-sm">{trait.title}</h5>
-                  </div>
-                  <p className="text-xs text-gray-600 leading-relaxed">{trait.desc}</p>
-                </motion.div>
+                  <h4 className="font-bold text-white text-sm mb-1">{trait.title}</h4>
+                  <p className="text-xs text-slate-400 leading-relaxed">{trait.desc}</p>
+                </div>
               ))}
             </div>
           </div>

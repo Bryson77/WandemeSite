@@ -25,9 +25,9 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
       setIsOpen(true);
       confetti({
         particleCount: 80,
-        spread: 90,
+        spread: 80,
         origin: { y: 0.8 },
-        colors: ["#F4A93B", "#FF6B6B", "#1F2937", "#EC4899"],
+        colors: ["#2563EB", "#38BDF8", "#FFFFFF"],
       });
     } else {
       setIsOpen(false);
@@ -41,111 +41,93 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
   };
 
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto" id="letter">
+    <section className="py-16 px-4 max-w-4xl mx-auto" id="letter">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-700 text-xs font-semibold mb-2 border border-red-200">
-          <Heart className="w-4 h-4 text-brand-coral fill-brand-coral" />
-          <span>Special Message</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-2 border border-blue-500/20">
+          <Heart className="w-3.5 h-3.5 fill-blue-400" />
+          <span>Special Birthday Letter</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-brand-navy font-heading">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
           A Letter For You ✉️
         </h2>
-        <p className="text-gray-600 text-sm max-w-md mx-auto mt-2">
-          Tap the envelope below to unfold your birthday letter!
+        <p className="text-slate-400 text-xs sm:text-sm mt-1">
+          Tap envelope to unseal the message
         </p>
       </div>
 
-      {/* Envelope Container */}
       <div className="flex flex-col items-center">
         {!isOpen && (
           <motion.div
             onClick={handleOpenEnvelope}
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full max-w-md bg-gradient-to-br from-amber-400 via-brand-gold to-orange-400 p-8 rounded-3xl shadow-2xl border-4 border-white cursor-pointer text-white flex flex-col items-center justify-center text-center space-y-4 relative group"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full max-w-md bg-[#121826] p-8 rounded-2xl border border-slate-700 cursor-pointer text-white flex flex-col items-center justify-center text-center space-y-3 shadow-xl group"
           >
-            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
-              <Mail className="w-10 h-10 text-white animate-bounce" />
+            <div className="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Mail className="w-8 h-8 text-blue-400" />
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold font-heading">Open Birthday Letter</h3>
-              <p className="text-xs text-amber-100 mt-1">Tap to unseal the message</p>
-            </div>
-
-            <div className="px-4 py-1.5 rounded-full bg-white/30 text-white text-xs font-semibold backdrop-blur-sm">
-              ✨ Sealed with Friendship
+              <h3 className="text-xl font-bold">Open Birthday Letter</h3>
+              <p className="text-xs text-slate-400 mt-1">Click to unseal message</p>
             </div>
           </motion.div>
         )}
 
-        {/* Opened Letter Paper Container */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ scale: 0.8, opacity: 0, y: 40 }}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 40 }}
-              transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
-              className="w-full bg-white paper-texture rounded-3xl p-6 sm:p-12 shadow-2xl border-2 border-amber-200/70 relative"
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.4 }}
+              className="w-full bg-white paper-texture rounded-2xl p-6 sm:p-10 shadow-2xl border border-slate-300 text-slate-900"
             >
-              {/* Top Controls Bar */}
-              <div className="flex items-center justify-between border-b border-amber-200/60 pb-4 mb-6">
-                <div className="flex items-center gap-2 text-amber-800 font-bold text-sm">
-                  <MailOpen className="w-5 h-5 text-brand-gold" />
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+                <div className="flex items-center gap-2 text-slate-900 font-bold text-xs sm:text-sm">
+                  <MailOpen className="w-4 h-4 text-blue-600" />
                   <span>Unsealed Letter</span>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setIsEditing(!isEditing)}
-                    className="p-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-amber-200"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold flex items-center gap-1 border border-slate-300"
                   >
-                    <Edit3 className="w-4 h-4" />
-                    <span>{isEditing ? "Done Editing" : "Edit Letter"}</span>
+                    <Edit3 className="w-3.5 h-3.5" />
+                    <span>{isEditing ? "Done" : "Edit"}</span>
                   </button>
 
                   <button
                     onClick={handleCopy}
-                    className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-colors"
-                    title="Copy letter text"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold"
                   >
-                    {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
 
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition-colors"
+                    className="px-2.5 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold"
                   >
-                    Close Envelope
+                    Close
                   </button>
                 </div>
               </div>
 
-              {/* Letter Content Area */}
               {isEditing ? (
                 <textarea
                   value={letterText}
                   onChange={(e) => setLetterText(e.target.value)}
-                  rows={12}
-                  className="w-full p-4 rounded-xl border-2 border-brand-gold/50 focus:outline-none focus:ring-2 focus:ring-brand-gold text-brand-navy font-mono text-sm leading-relaxed bg-amber-50/50"
-                  placeholder="Paste or write your birthday letter text here..."
+                  rows={10}
+                  className="w-full p-4 rounded-xl border border-blue-400 text-slate-900 font-sans text-sm leading-relaxed bg-slate-50 focus:outline-none"
                 />
               ) : (
-                <div className="space-y-4 text-brand-navy leading-relaxed text-sm sm:text-base whitespace-pre-line font-serif italic text-gray-800 p-2">
+                <div className="space-y-4 text-slate-900 leading-relaxed text-sm sm:text-base whitespace-pre-line font-serif italic p-1">
                   {letterText}
                 </div>
               )}
-
-              {/* Letter Footer */}
-              <div className="mt-8 pt-6 border-t border-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-                <span className="flex items-center gap-1 text-brand-coral font-medium">
-                  <Heart className="w-4 h-4 fill-brand-coral" /> Made with love for Wandeme
-                </span>
-                <span>Tap &apos;Edit Letter&apos; anytime to paste your own message</span>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>

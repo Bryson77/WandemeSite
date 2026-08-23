@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, Flame, MessageSquareQuote, Shield } from "lucide-react";
+import { Trophy, MessageSquareQuote, Shield } from "lucide-react";
 import Image from "next/image";
 import confetti from "canvas-confetti";
 
@@ -11,70 +11,58 @@ export default function FootballCard() {
 
   const handleGoalClick = () => {
     setGoalCelebration(true);
-
-    // Goal celebration burst
     confetti({
-      particleCount: 70,
+      particleCount: 60,
       angle: 90,
       spread: 80,
       origin: { y: 0.6 },
-      colors: ["#000000", "#60A5FA", "#F59E0B", "#EF4444"],
+      colors: ["#2563EB", "#38BDF8", "#FFFFFF", "#000000"],
     });
-
-    setTimeout(() => setGoalCelebration(false), 2500);
+    setTimeout(() => setGoalCelebration(false), 2000);
   };
 
   return (
-    <section className="py-10 px-4 max-w-5xl mx-auto">
+    <section className="py-8 px-4 max-w-5xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-emerald-100 relative overflow-hidden"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-[#121826] rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Soccer Ball Image & Click Trigger */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center order-2 md:order-1">
+          {/* Soccer Ball Image */}
+          <div className="md:col-span-5 flex flex-col items-center order-2 md:order-1">
             <div
               onClick={handleGoalClick}
-              className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden cursor-pointer shadow-md border-2 border-emerald-100 group hover:shadow-xl transition-all transform hover:scale-102"
+              className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl overflow-hidden cursor-pointer border border-slate-700 group shadow-md"
             >
               <Image
                 src="/images/soccer.jpg"
-                alt="Soccer Ball Placeholder"
+                alt="Soccer Ball"
                 fill
-                sizes="(max-width: 768px) 100vw, 350px"
-                className={`object-cover transition-transform duration-700 ${
-                  goalCelebration ? "scale-110 rotate-12" : "group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 300px"
+                className={`object-cover transition-transform duration-500 ${
+                  goalCelebration ? "scale-110 rotate-6" : "group-hover:scale-105"
                 }`}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-between p-4 text-white">
-                <span className="text-xs font-semibold flex items-center gap-1.5">
-                  ⚽ Click for GOAL celebration!
-                </span>
-                <span className="text-[10px] bg-emerald-500/80 backdrop-blur-sm px-2 py-0.5 rounded font-bold">
-                  Tap
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-between p-3 text-white text-xs">
+                <span>⚽ Click for GOAL celebration!</span>
+                <span className="bg-blue-600 px-2 py-0.5 rounded text-[10px] font-bold">Tap</span>
               </div>
 
-              {/* Goal Popup Text */}
               <AnimatePresence>
                 {goalCelebration && (
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1.2, opacity: 1 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
-                    className="absolute inset-0 bg-emerald-600/90 backdrop-blur-sm flex flex-col items-center justify-center text-white p-4 text-center"
+                    className="absolute inset-0 bg-blue-600/90 flex flex-col items-center justify-center text-white p-4 text-center"
                   >
-                    <Trophy className="w-12 h-12 text-yellow-300 animate-bounce mb-2" />
-                    <h4 className="text-2xl font-extrabold uppercase tracking-widest font-heading">
-                      GOAAAL! ⚽🔥
-                    </h4>
-                    <p className="text-xs font-medium text-emerald-100 mt-1">
-                      Kha pass&apos;e bola! Pure football passion!
-                    </p>
+                    <Trophy className="w-10 h-10 text-yellow-300 animate-bounce mb-1" />
+                    <h4 className="text-xl font-extrabold uppercase font-sans">GOAAAL! ⚽</h4>
+                    <p className="text-xs text-blue-100 mt-1">Kha pass&apos;e bola!</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -82,43 +70,40 @@ export default function FootballCard() {
           </div>
 
           {/* Text Content */}
-          <div className="md:col-span-7 space-y-5 order-1 md:order-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
-              <Shield className="w-4 h-4 text-emerald-600" />
+          <div className="md:col-span-7 space-y-4 order-1 md:order-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold border border-blue-500/20">
+              <Shield className="w-3.5 h-3.5" />
               <span>Football Fanatic</span>
             </div>
 
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-brand-navy font-heading">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
               The Beautiful Game ⚽
             </h3>
 
-            {/* Team Badges */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="px-4 py-2 rounded-xl bg-black text-white text-xs font-bold flex items-center gap-2 shadow-sm">
-                <span>☠️ Orlando Pirates</span>
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-sky-500 text-white text-xs font-bold flex items-center gap-2 shadow-sm">
-                <span>🩵 Manchester City</span>
-              </div>
-              <div className="px-4 py-2 rounded-xl bg-amber-400 text-brand-navy text-xs font-bold flex items-center gap-2 shadow-sm">
-                <span>👑 Lionel Messi (GOAT)</span>
-              </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 rounded-lg bg-black text-white text-xs font-bold border border-slate-700">
+                ☠️ Orlando Pirates
+              </span>
+              <span className="px-3 py-1 rounded-lg bg-sky-500 text-white text-xs font-bold">
+                🩵 Manchester City
+              </span>
+              <span className="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold">
+                👑 Lionel Messi (GOAT)
+              </span>
             </div>
 
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              When matchday comes around, you&apos;ll find Wandeme locked in. Lionel Messi takes top spot as his overall favorite player, 
-              but when it comes to Orlando Pirates... he has <em className="italic">no favorite player</em> because he literally yells at all of them!
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Lionel Messi is his favorite player of all time. But for Orlando Pirates... he has <em className="italic text-white font-semibold">no favorite player</em> because he yells at all of them!
             </p>
 
-            {/* Quote Bubble */}
-            <div className="relative bg-amber-50 border-2 border-brand-gold/40 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-start gap-3">
-                <MessageSquareQuote className="w-6 h-6 text-brand-gold shrink-0 mt-0.5" />
+            <div className="bg-[#090D16] border border-slate-800 rounded-xl p-3.5">
+              <div className="flex items-start gap-2.5">
+                <MessageSquareQuote className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm font-extrabold text-brand-navy italic">
+                  <p className="text-sm font-bold text-sky-400 italic">
                     &quot;kha pass&apos;e bola, thoho ya mianu&quot;
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-[11px] text-slate-400 mt-0.5">
                     — Wandeme, every single time Pirates loses possession
                   </p>
                 </div>

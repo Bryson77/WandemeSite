@@ -1,84 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Utensils, Cookie, Cake, Shirt, Heart } from "lucide-react";
+import { Utensils, Cookie, Cake, Shirt, Star } from "lucide-react";
 
 export default function FavouritesGrid() {
   const items = [
     {
-      icon: <Utensils className="w-6 h-6 text-amber-500" />,
+      icon: <Utensils className="w-5 h-5 text-blue-400" />,
       category: "Favorite Meal",
       title: "Spaghetti & Mince 🍝",
-      detail: "Pap runs a close second (Venda pride strong 🇿🇦). Nothing beats a full plate.",
-      bgColor: "bg-amber-50 border-amber-200/80",
-      badgeColor: "bg-amber-100 text-amber-800",
+      detail: "Pap runs a close second (Venda pride 🇿🇦). Nothing beats a full plate.",
     },
     {
-      icon: <Cookie className="w-6 h-6 text-amber-700" />,
+      icon: <Cookie className="w-5 h-5 text-sky-400" />,
       category: "Go-To Snacks",
       title: "Oreos + Top Deck 🍫",
       detail: "\"Broke but he'll make a plan\" — snack stash is non-negotiable.",
-      bgColor: "bg-orange-50 border-orange-200/80",
-      badgeColor: "bg-orange-100 text-orange-800",
     },
     {
-      icon: <Cake className="w-6 h-6 text-pink-500" />,
-      category: "Top Birthday Cakes",
+      icon: <Cake className="w-5 h-5 text-blue-400" />,
+      category: "Top Cake",
       title: "Checkers Mousse / Woolies Swirl 🍰",
       detail: "Checkers Chocolate Mousse or Woolworths Caramel Swirl — zero competition.",
-      bgColor: "bg-pink-50 border-pink-200/80",
-      badgeColor: "bg-pink-100 text-pink-800",
     },
     {
-      icon: <Shirt className="w-6 h-6 text-indigo-500" />,
+      icon: <Shirt className="w-5 h-5 text-sky-400" />,
       category: "Go-To Brand",
       title: "Old Khaki 👕",
       detail: "Dedicated t-shirt collector. If it's Old Khaki, he's adding it to the wardrobe.",
-      bgColor: "bg-indigo-50 border-indigo-200/80",
-      badgeColor: "bg-indigo-100 text-indigo-800",
     },
   ];
 
   return (
-    <section className="py-12 px-4 max-w-5xl mx-auto">
+    <section className="py-10 px-4 max-w-5xl mx-auto">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold mb-2">
-          <Heart className="w-4 h-4 text-brand-coral fill-brand-coral" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-2 border border-blue-500/20">
+          <Star className="w-3.5 h-3.5" />
           <span>The Essentials</span>
         </div>
-        <h3 className="text-3xl sm:text-4xl font-extrabold text-brand-navy font-heading">
+        <h3 className="text-2xl sm:text-4xl font-extrabold text-white font-sans">
           Wandeme&apos;s Favorites ⭐️
         </h3>
-        <p className="text-gray-600 text-sm max-w-md mx-auto mt-1">
-          A quick guide to his absolute favorite things in life.
-        </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {items.map((item, index) => (
           <motion.div
             key={item.category}
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            className={`p-6 rounded-3xl border ${item.bgColor} shadow-sm hover:shadow-md transition-all flex flex-col justify-between`}
+            transition={{ duration: 0.3, delay: index * 0.08 }}
+            className="p-5 rounded-2xl bg-[#121826] border border-slate-800 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 bg-white rounded-2xl shadow-sm border border-slate-100">
+              <div className="flex items-center justify-between mb-3">
+                <div className="p-2.5 bg-[#090D16] rounded-xl border border-slate-800">
                   {item.icon}
                 </div>
-                <span className={`text-[11px] font-bold px-3 py-1 rounded-full ${item.badgeColor}`}>
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
                   {item.category}
                 </span>
               </div>
 
-              <h4 className="text-xl font-bold text-brand-navy font-heading mb-2">
-                {item.title}
-              </h4>
-              <p className="text-sm text-gray-600 leading-relaxed">{item.detail}</p>
+              <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">{item.detail}</p>
             </div>
           </motion.div>
         ))}
