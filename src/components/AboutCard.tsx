@@ -26,10 +26,10 @@ export default function AboutCard() {
   return (
     <section className="py-14 px-4 max-w-5xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
         className="bg-[#121826] rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -62,14 +62,18 @@ export default function AboutCard() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {traits.map((trait) => (
-                <div
+              {traits.map((trait, i) => (
+                <motion.div
                   key={trait.title}
-                  className="bg-[#090D16] p-4 rounded-xl border border-slate-800/80"
+                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2, delay: i * 0.05, ease: [0.23, 1, 0.32, 1] }}
+                  className="bg-[#090D16] p-4 rounded-xl border border-slate-800/80 active:scale-[0.98] transition-transform duration-150 ease-out"
                 >
                   <h4 className="font-bold text-white text-sm mb-1">{trait.title}</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">{trait.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

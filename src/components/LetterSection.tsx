@@ -4,11 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MailOpen, Heart, Edit3, Check, Copy } from "lucide-react";
 import confetti from "canvas-confetti";
+import Toast from "./Toast";
 
 export default function LetterSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const defaultLetter = `Brother man, you're pushing 30! 🤣 if only the little kid on the picture didn't wish to be older, you wouldn't be here 🙂‍↕️. Jokes aside, happy birthday Ipfi ❤️! I hope God blesses you with more wisdom as you grow. I hope He blesses you with money so that I don't have to worry about getting a degree 🤣, you're my only plan B (jk).
 
@@ -20,9 +22,15 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
 
   const [letterText, setLetterText] = useState(defaultLetter);
 
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 2000);
+  };
+
   const handleOpenEnvelope = () => {
     if (!isOpen) {
       setIsOpen(true);
+      showToast("Envelope Unsealed");
       confetti({
         particleCount: 80,
         spread: 80,
@@ -37,11 +45,14 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
   const handleCopy = () => {
     navigator.clipboard.writeText(letterText);
     setCopied(true);
+    showToast("Letter Copied");
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <section className="py-16 px-4 max-w-4xl mx-auto" id="letter">
+      <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
+
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-2 border border-blue-500/20">
           <Heart className="w-3.5 h-3.5 fill-blue-400" />
@@ -59,11 +70,11 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
         {!isOpen && (
           <motion.div
             onClick={handleOpenEnvelope}
-            initial={{ scale: 0.95, opacity: 0 }}
+            initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full max-w-md bg-[#121826] p-8 rounded-2xl border border-slate-700 cursor-pointer text-white flex flex-col items-center justify-center text-center space-y-3 shadow-xl group"
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="w-full max-w-md bg-[#121826] p-8 rounded-2xl border border-slate-700 cursor-pointer text-white flex flex-col items-center justify-center text-center space-y-3 shadow-xl group active:scale-[0.97] transition-transform duration-150 ease-out"
           >
             <div className="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-105 transition-transform">
               <Mail className="w-8 h-8 text-blue-400" />
@@ -79,10 +90,10 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              initial={{ scale: 0.95, opacity: 0, y: 12 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ duration: 0.4 }}
+              exit={{ scale: 0.95, opacity: 0, y: 12 }}
+              transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
               className="w-full bg-white paper-texture rounded-2xl p-6 sm:p-10 shadow-2xl border border-slate-300 text-slate-900"
             >
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
@@ -94,7 +105,7 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setIsEditing(!isEditing)}
-                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold flex items-center gap-1 border border-slate-300"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-[0.97] text-slate-800 text-xs font-semibold flex items-center gap-1 border border-slate-300 transition-transform duration-150 ease-out"
                   >
                     <Edit3 className="w-3.5 h-3.5" />
                     <span>{isEditing ? "Done" : "Edit"}</span>
@@ -102,14 +113,14 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
 
                   <button
                     onClick={handleCopy}
-                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-[0.97] text-slate-700 text-xs font-semibold transition-transform duration-150 ease-out"
                   >
                     {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
 
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="px-2.5 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold"
+                    className="px-2.5 py-1 rounded-lg bg-red-50 hover:bg-red-100 active:scale-[0.97] text-red-600 text-xs font-semibold transition-transform duration-150 ease-out"
                   >
                     Close
                   </button>
