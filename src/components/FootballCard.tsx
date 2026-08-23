@@ -41,7 +41,7 @@ export default function FootballCard() {
               className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden cursor-pointer shadow-md border-2 border-emerald-100 group hover:shadow-xl transition-all transform hover:scale-102"
             >
               <Image
-                src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?auto=format&fit=crop&w=800&q=80"
+                src="/images/soccer.jpg"
                 alt="Soccer Ball Placeholder"
                 fill
                 sizes="(max-width: 768px) 100vw, 350px"

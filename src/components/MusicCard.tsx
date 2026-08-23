@@ -81,7 +81,7 @@ export default function MusicCard() {
               className="relative w-full max-w-sm h-72 sm:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-md group border-2 border-slate-100 hover:shadow-xl transition-all transform hover:-translate-y-1"
             >
               <Image
-                src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=800&q=80"
+                src="/images/drums.jpg"
                 alt="Drums Placeholder"
                 fill
                 sizes="(max-width: 768px) 100vw, 400px"

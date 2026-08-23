@@ -46,7 +46,7 @@ export default function AboutCard() {
           <div className="md:col-span-5 flex flex-col items-center justify-center text-center">
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-brand-gold shadow-lg group">
               <Image
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                src="/images/portrait.jpg"
                 alt="Wandeme Portrait Placeholder"
                 fill
                 sizes="(max-width: 768px) 100vw, 300px"

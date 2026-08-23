@@ -54,7 +54,7 @@ export default function DreamCarCard() {
           <div className="md:col-span-6">
             <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-white/15 shadow-xl group">
               <Image
-                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80"
+                src="/images/bmw340i.jpg"
                 alt="BMW 340i Placeholder"
                 fill
                 sizes="(max-width: 768px) 100vw, 500px"
