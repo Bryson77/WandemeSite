@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import wandemeImg from "../../public/images/wandeme.jpg";
+import portraitImg from "../../public/images/portrait.jpg";
 
 export default function AboutCard() {
   const traits = [
@@ -52,7 +54,7 @@ export default function AboutCard() {
 
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/wandeme.jpg"
+                  src={wandemeImg}
                   alt="Wandeme Ipfi"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
@@ -74,7 +76,7 @@ export default function AboutCard() {
             <div className="relative rotate-[2deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)] w-full max-w-[220px]">
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/portrait.jpg"
+                  src={portraitImg}
                   alt="Wandeme Close Up"
                   fill
                   sizes="(max-width: 768px) 100vw, 200px"

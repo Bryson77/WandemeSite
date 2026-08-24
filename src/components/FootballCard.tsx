@@ -5,6 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, MessageSquareQuote, Shield } from "lucide-react";
 import Image from "next/image";
 import confetti from "canvas-confetti";
+import piratesImg from "../../public/images/pirates.jpg";
+import messiImg from "../../public/images/messi.jpg";
+import mancityImg from "../../public/images/mancity.jpg";
+import soccerImg from "../../public/images/soccer.jpg";
 
 export default function FootballCard() {
   const [goalCelebration, setGoalCelebration] = useState(false);
@@ -63,7 +67,7 @@ export default function FootballCard() {
             <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-black">
                 <Image
-                  src="/images/pirates.jpg"
+                  src={piratesImg}
                   alt="Orlando Pirates"
                   fill
                   sizes="(max-width: 768px) 100vw, 200px"
@@ -82,7 +86,7 @@ export default function FootballCard() {
             <div className="relative rotate-[2deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)] flex flex-col justify-between">
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/messi.jpg"
+                  src={messiImg}
                   alt="Lionel Messi"
                   fill
                   sizes="(max-width: 768px) 100vw, 200px"
@@ -101,7 +105,7 @@ export default function FootballCard() {
             <div className="relative rotate-[-1.5deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/mancity.jpg"
+                  src={mancityImg}
                   alt="Manchester City"
                   fill
                   sizes="(max-width: 768px) 100vw, 200px"
@@ -123,7 +127,7 @@ export default function FootballCard() {
                 className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100 cursor-pointer group"
               >
                 <Image
-                  src="/images/soccer.jpg"
+                  src={soccerImg}
                   alt="Soccer Ball"
                   fill
                   sizes="(max-width: 768px) 100vw, 200px"

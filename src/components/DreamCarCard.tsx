@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Car, Gauge, Zap } from "lucide-react";
 import Image from "next/image";
+import bmwM340iImg from "../../public/images/bmw_m340i.jpg";
+import bmw340iImg from "../../public/images/bmw340i.jpg";
 
 export default function DreamCarCard() {
   return (
@@ -66,7 +68,7 @@ export default function DreamCarCard() {
 
               <div className="relative w-full aspect-video border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/bmw_m340i.jpg"
+                  src={bmwM340iImg}
                   alt="BMW M340i"
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -85,7 +87,7 @@ export default function DreamCarCard() {
             <div className="relative rotate-[-1.5deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)] w-full max-w-[280px]">
               <div className="relative w-full aspect-[16/9] border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/bmw340i.jpg"
+                  src={bmw340iImg}
                   alt="BMW 340i Side Angle"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"

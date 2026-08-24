@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Music, Disc } from "lucide-react";
 import Image from "next/image";
 import confetti from "canvas-confetti";
+import drumsImg from "../../public/images/drums.jpg";
+import guitarImg from "../../public/images/guitar.jpg";
+import saxophoneImg from "../../public/images/saxophone.jpg";
 
 export default function MusicCard() {
   const [drumRipple, setDrumRipple] = useState(false);
@@ -67,7 +70,7 @@ export default function MusicCard() {
                 className="relative w-full aspect-video border border-zinc-900 overflow-hidden bg-zinc-100 cursor-pointer group"
               >
                 <Image
-                  src="/images/drums.jpg"
+                  src={drumsImg}
                   alt="Drums"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
@@ -105,7 +108,7 @@ export default function MusicCard() {
             <div className="relative rotate-[1.5deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[5px_5px_0px_0px_rgba(220,38,38,1)] flex flex-col justify-between">
               <div className="relative w-full aspect-video border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/guitar.jpg"
+                  src={guitarImg}
                   alt="Bass Guitar"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
@@ -128,7 +131,7 @@ export default function MusicCard() {
             <div className="relative rotate-[-1.5deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
               <div className="relative w-full aspect-video border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/saxophone.jpg"
+                  src={saxophoneImg}
                   alt="Saxophone"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
