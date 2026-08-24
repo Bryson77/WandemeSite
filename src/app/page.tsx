@@ -10,7 +10,7 @@ import { Heart } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between selection:bg-zinc-900 selection:text-white font-typewriter">
+    <main className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between selection:bg-red-600 selection:text-white font-typewriter">
       <div>
         {/* Hero Banner */}
         <HeroSection />
@@ -38,12 +38,9 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="py-8 bg-zinc-900 text-white text-center text-xs space-y-2 border-t-2 border-zinc-900 font-typewriter">
-        <p className="flex items-center justify-center gap-1 font-bold uppercase tracking-wider">
-          Happy Birthday Wandeme Ipfi Mamatsharaga <Heart className="w-3.5 h-3.5 text-white fill-white" />
-        </p>
-        <p className="text-zinc-400 text-[11px] font-mono">
-          Created for Wandeme &bull; Built with Next.js & Tailwind CSS
+      <footer className="py-10 bg-zinc-900 text-white text-center text-xs sm:text-sm border-t-4 border-red-600 font-typewriter">
+        <p className="flex items-center justify-center gap-2 font-bold uppercase tracking-widest text-zinc-100">
+          Created by Kopano with love <Heart className="w-4 h-4 text-red-600 fill-red-600 animate-pulse" /> ❤️
         </p>
       </footer>
     </main>

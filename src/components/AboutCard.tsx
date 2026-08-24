@@ -35,23 +35,24 @@ export default function AboutCard() {
         {/* Top Section Header */}
         <div className="flex items-center justify-between border-b-2 border-zinc-900 pb-4 mb-8 font-typewriter">
           <span className="text-xs font-mono font-bold tracking-widest text-zinc-500 uppercase">
-            ARTICLE 01 // PROFILE
+            ARTICLE 01 // PROFILE & QUIRKS
           </span>
-          <span className="text-xs font-mono font-bold bg-zinc-900 text-white px-2 py-0.5 uppercase">
+          <span className="text-xs font-mono font-bold bg-red-600 text-white px-2.5 py-0.5 uppercase tracking-wider">
             FEATURE STORY
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Magazine Cut-Out Photo Opening */}
-          <div className="md:col-span-5 flex flex-col items-center">
+          {/* Magazine Cut-Out Photos (Main Wandeme Photo + Portrait Cutout) */}
+          <div className="md:col-span-5 flex flex-col items-center gap-6">
+            {/* Cutout 1: Wandeme.jpg */}
             <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-xs">
               {/* Tape Effect */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-amber-100/90 border border-amber-300/80 rotate-[1deg] shadow-sm z-10" />
 
               <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
                 <Image
-                  src="/images/portrait.jpg"
+                  src="/images/wandeme.jpg"
                   alt="Wandeme Ipfi"
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
@@ -61,10 +62,28 @@ export default function AboutCard() {
 
               <div className="pt-3 text-center font-typewriter">
                 <p className="text-xs font-bold text-zinc-900 uppercase tracking-wide">
-                  [ FIG. 01 — WANDEME IPFI ]
+                  [ FIG. 01A — WANDEME IPFI ]
                 </p>
                 <p className="text-[11px] text-zinc-500 italic mt-0.5">
                   &quot;Venda Pride &bull; Car Enthusiast &bull; Nap Master&quot;
+                </p>
+              </div>
+            </div>
+
+            {/* Cutout 2: Portrait.jpg */}
+            <div className="relative rotate-[2deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)] w-full max-w-[220px]">
+              <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
+                <Image
+                  src="/images/portrait.jpg"
+                  alt="Wandeme Close Up"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 200px"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              <div className="pt-2 text-center font-typewriter">
+                <p className="text-[10px] font-bold text-red-600 uppercase tracking-wider">
+                  [ FIG. 01B — THE MAN HIMSELF ]
                 </p>
               </div>
             </div>
@@ -89,9 +108,9 @@ export default function AboutCard() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.2, delay: i * 0.05 }}
-                  className="bg-zinc-50 p-4 border border-zinc-900 font-typewriter relative"
+                  className="bg-zinc-50 p-4 border border-zinc-900 font-typewriter relative hover:border-red-600 transition-colors"
                 >
-                  <div className="absolute top-2 right-2 text-[10px] font-mono text-zinc-400">#0{i+1}</div>
+                  <div className="absolute top-2 right-2 text-[10px] font-mono text-red-600 font-bold">#0{i+1}</div>
                   <h3 className="font-bold text-zinc-900 text-sm mb-1">{trait.title}</h3>
                   <p className="text-xs text-zinc-700 leading-relaxed">{trait.desc}</p>
                 </motion.div>
