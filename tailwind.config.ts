@@ -10,19 +10,20 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          bg: "#090D16",
-          card: "#121826",
-          cardBorder: "#1E293B",
-          blue: "#2563EB",
-          blueHover: "#1D4ED8",
-          sky: "#38BDF8",
-          text: "#F8FAFC",
-          muted: "#94A3B8",
-          subtle: "#64748B",
+          bg: "#FFFFFF",
+          card: "#FFFFFF",
+          cardBorder: "#18181B",
+          text: "#09090B",
+          muted: "#52525B",
+          subtle: "#71717A",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        typewriter: ["var(--font-typewriter)", "Courier New", "Courier", "monospace"],
+        magazine: ["var(--font-magazine)", "Georgia", "serif"],
+        sans: ["var(--font-typewriter)", "Courier New", "Courier", "monospace"],
+        serif: ["var(--font-magazine)", "Georgia", "serif"],
+        mono: ["var(--font-typewriter)", "Courier New", "Courier", "monospace"],
       },
       animation: {
         'marquee': 'marquee 25s linear infinite',

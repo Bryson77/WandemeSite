@@ -24,55 +24,76 @@ export default function AboutCard() {
   ];
 
   return (
-    <section className="py-14 px-4 max-w-5xl mx-auto">
+    <section className="py-14 px-4 max-w-5xl mx-auto" id="about">
       <motion.div
-        initial={{ opacity: 0, y: 16, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-        className="bg-[#121826] rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl"
+        transition={{ duration: 0.3 }}
+        className="bg-white p-6 sm:p-10 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
       >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Portrait */}
-          <div className="md:col-span-5 flex flex-col items-center text-center">
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-md">
-              <Image
-                src="/images/portrait.jpg"
-                alt="Wandeme Ipfi"
-                fill
-                sizes="(max-width: 768px) 100vw, 250px"
-                className="object-cover"
-              />
+        {/* Top Section Header */}
+        <div className="flex items-center justify-between border-b-2 border-zinc-900 pb-4 mb-8 font-typewriter">
+          <span className="text-xs font-mono font-bold tracking-widest text-zinc-500 uppercase">
+            ARTICLE 01 // PROFILE
+          </span>
+          <span className="text-xs font-mono font-bold bg-zinc-900 text-white px-2 py-0.5 uppercase">
+            FEATURE STORY
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          {/* Magazine Cut-Out Photo Opening */}
+          <div className="md:col-span-5 flex flex-col items-center">
+            <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-xs">
+              {/* Tape Effect */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-amber-100/90 border border-amber-300/80 rotate-[1deg] shadow-sm z-10" />
+
+              <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
+                <Image
+                  src="/images/portrait.jpg"
+                  alt="Wandeme Ipfi"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 300px"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+
+              <div className="pt-3 text-center font-typewriter">
+                <p className="text-xs font-bold text-zinc-900 uppercase tracking-wide">
+                  [ FIG. 01 — WANDEME IPFI ]
+                </p>
+                <p className="text-[11px] text-zinc-500 italic mt-0.5">
+                  &quot;Venda Pride &bull; Car Enthusiast &bull; Nap Master&quot;
+                </p>
+              </div>
             </div>
-            <h2 className="mt-4 text-2xl font-bold text-white">Wandeme Ipfi</h2>
-            <p className="text-xs text-slate-400 mt-1 font-medium">
-              Venda Pride &bull; Car Enthusiast &bull; Nap Master
-            </p>
           </div>
 
-          {/* Bio Quirks Grid */}
-          <div className="md:col-span-7 space-y-5">
+          {/* Body Text & Bio Quirks */}
+          <div className="md:col-span-7 space-y-6">
             <div>
-              <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
-                Personality & Quirks
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+              <h2 className="text-3xl sm:text-4xl font-extrabold font-magazine text-zinc-900 leading-tight">
                 Who is Wandeme?
-              </h3>
+              </h2>
+              <p className="text-sm font-typewriter text-zinc-700 mt-2 leading-relaxed">
+                A closer look at the man of the hour. Known across Venda and beyond for his unshakeable commitment to high quality naps, legendary humor, and zero-compromise dining habits.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {traits.map((trait, i) => (
                 <motion.div
                   key={trait.title}
-                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.2, delay: i * 0.05, ease: [0.23, 1, 0.32, 1] }}
-                  className="bg-[#090D16] p-4 rounded-xl border border-slate-800/80 active:scale-[0.98] transition-transform duration-150 ease-out"
+                  transition={{ duration: 0.2, delay: i * 0.05 }}
+                  className="bg-zinc-50 p-4 border border-zinc-900 font-typewriter relative"
                 >
-                  <h4 className="font-bold text-white text-sm mb-1">{trait.title}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{trait.desc}</p>
+                  <div className="absolute top-2 right-2 text-[10px] font-mono text-zinc-400">#0{i+1}</div>
+                  <h3 className="font-bold text-zinc-900 text-sm mb-1">{trait.title}</h3>
+                  <p className="text-xs text-zinc-700 leading-relaxed">{trait.desc}</p>
                 </motion.div>
               ))}
             </div>

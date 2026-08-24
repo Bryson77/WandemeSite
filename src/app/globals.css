@@ -7,11 +7,15 @@
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #090D16;
-  color: #F8FAFC;
+  background-color: #FFFFFF;
+  color: #09090B;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-typewriter), "Courier New", Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
@@ -34,24 +38,24 @@ body {
   }
 }
 
-/* Paper Texture */
+/* Vintage Paper Texture */
 .paper-texture {
-  background-color: #FFFFFF;
-  background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+  background-color: #FAFAFA;
+  background-image: radial-gradient(#E4E4E7 0.75px, transparent 0.75px);
   background-size: 14px 14px;
 }
 
 /* Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090D16;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 9999px;
+  background: #27272A;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563EB;
+  background: #000000;
 }

@@ -35,7 +35,7 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
         particleCount: 80,
         spread: 80,
         origin: { y: 0.8 },
-        colors: ["#2563EB", "#38BDF8", "#FFFFFF"],
+        colors: ["#000000", "#3F3F46", "#FFFFFF"],
       });
     } else {
       setIsOpen(false);
@@ -53,36 +53,36 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
     <section className="py-16 px-4 max-w-4xl mx-auto" id="letter">
       <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
 
-      <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-2 border border-blue-500/20">
-          <Heart className="w-3.5 h-3.5 fill-blue-400" />
+      <div className="text-center mb-8 font-typewriter">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 text-zinc-900 text-xs font-bold uppercase tracking-widest mb-2 border border-zinc-900">
+          <Heart className="w-3.5 h-3.5 fill-zinc-900 text-zinc-900" />
           <span>Special Birthday Letter</span>
         </div>
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-900 font-magazine">
           A Letter For You ✉️
         </h2>
-        <p className="text-slate-400 text-xs sm:text-sm mt-1">
+        <p className="text-zinc-600 text-xs sm:text-sm mt-1 font-typewriter">
           Tap envelope to unseal the message
         </p>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center font-typewriter">
         {!isOpen && (
           <motion.div
             onClick={handleOpenEnvelope}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className="w-full max-w-md bg-[#121826] p-8 rounded-2xl border border-slate-700 cursor-pointer text-white flex flex-col items-center justify-center text-center space-y-3 shadow-xl group active:scale-[0.97] transition-transform duration-150 ease-out"
+            transition={{ duration: 0.2 }}
+            className="w-full max-w-md bg-white p-8 border-2 border-zinc-900 cursor-pointer text-zinc-900 flex flex-col items-center justify-center text-center space-y-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-105 transition-transform">
-              <Mail className="w-8 h-8 text-blue-400" />
+            <div className="w-16 h-16 bg-zinc-100 border border-zinc-900 flex items-center justify-center">
+              <Mail className="w-8 h-8 text-zinc-900" />
             </div>
 
             <div>
-              <h3 className="text-xl font-bold">Open Birthday Letter</h3>
-              <p className="text-xs text-slate-400 mt-1">Click to unseal message</p>
+              <h3 className="text-xl font-bold font-magazine">Open Birthday Letter</h3>
+              <p className="text-xs text-zinc-600 mt-1 uppercase tracking-wider font-mono">Click to unseal message</p>
             </div>
           </motion.div>
         )}
@@ -93,19 +93,19 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
               initial={{ scale: 0.95, opacity: 0, y: 12 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 12 }}
-              transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-              className="w-full bg-white paper-texture rounded-2xl p-6 sm:p-10 shadow-2xl border border-slate-300 text-slate-900"
+              transition={{ duration: 0.25 }}
+              className="w-full bg-white paper-texture p-6 sm:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-zinc-900 text-zinc-900"
             >
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-xs sm:text-sm">
-                  <MailOpen className="w-4 h-4 text-blue-600" />
-                  <span>Unsealed Letter</span>
+              <div className="flex items-center justify-between border-b-2 border-zinc-900 pb-3 mb-5">
+                <div className="flex items-center gap-2 text-zinc-900 font-bold text-xs sm:text-sm font-magazine">
+                  <MailOpen className="w-4 h-4 text-zinc-900" />
+                  <span>UNSEALED LETTER</span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 font-typewriter">
                   <button
                     onClick={() => setIsEditing(!isEditing)}
-                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-[0.97] text-slate-800 text-xs font-semibold flex items-center gap-1 border border-slate-300 transition-transform duration-150 ease-out"
+                    className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-bold flex items-center gap-1 border border-zinc-900"
                   >
                     <Edit3 className="w-3.5 h-3.5" />
                     <span>{isEditing ? "Done" : "Edit"}</span>
@@ -113,14 +113,14 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
 
                   <button
                     onClick={handleCopy}
-                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-[0.97] text-slate-700 text-xs font-semibold transition-transform duration-150 ease-out"
+                    className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-bold border border-zinc-900"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-zinc-900" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
 
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="px-2.5 py-1 rounded-lg bg-red-50 hover:bg-red-100 active:scale-[0.97] text-red-600 text-xs font-semibold transition-transform duration-150 ease-out"
+                    className="px-2.5 py-1 bg-zinc-900 text-white hover:bg-black text-xs font-bold border border-zinc-900"
                   >
                     Close
                   </button>
@@ -132,10 +132,10 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
                   value={letterText}
                   onChange={(e) => setLetterText(e.target.value)}
                   rows={10}
-                  className="w-full p-4 rounded-xl border border-blue-400 text-slate-900 font-sans text-sm leading-relaxed bg-slate-50 focus:outline-none"
+                  className="w-full p-4 border-2 border-zinc-900 text-zinc-900 font-typewriter text-sm leading-relaxed bg-white focus:outline-none"
                 />
               ) : (
-                <div className="space-y-4 text-slate-900 leading-relaxed text-sm sm:text-base whitespace-pre-line font-serif italic p-1">
+                <div className="space-y-4 text-zinc-900 leading-relaxed text-sm sm:text-base whitespace-pre-line font-typewriter p-1">
                   {letterText}
                 </div>
               )}

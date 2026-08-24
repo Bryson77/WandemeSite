@@ -17,7 +17,7 @@ export default function CatchphraseTicker() {
   const repeated = [...phrases, ...phrases, ...phrases, ...phrases];
 
   return (
-    <div className="py-4 bg-[#0D131F] border-y border-slate-800/80 overflow-hidden relative select-none">
+    <div className="py-4 bg-zinc-900 border-y-2 border-zinc-900 overflow-hidden relative select-none text-white font-typewriter">
       <div className="relative w-full overflow-hidden flex">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -27,7 +27,7 @@ export default function CatchphraseTicker() {
           {repeated.map((phrase, idx) => (
             <span
               key={idx}
-              className="inline-flex items-center text-xs sm:text-sm font-semibold text-slate-200 px-3.5 py-1 rounded-lg bg-[#121826] border border-slate-800"
+              className="inline-flex items-center text-xs sm:text-sm font-bold text-white px-3.5 py-1 bg-zinc-800 border border-zinc-700 uppercase tracking-wide"
             >
               {phrase}
             </span>
