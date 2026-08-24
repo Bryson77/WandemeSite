@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import wandemeImg from "../../public/images/wandeme.jpg";
-import portraitImg from "../../public/images/portrait.jpg";
 
 export default function AboutCard() {
   const traits = [
@@ -45,10 +44,10 @@ export default function AboutCard() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Magazine Cut-Out Photos (Main Wandeme Photo + Portrait Cutout) */}
+          {/* Magazine Cut-Out Photo (Main Wandeme Photo) */}
           <div className="md:col-span-5 flex flex-col items-center gap-6">
             {/* Cutout 1: Wandeme.jpg */}
-            <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-xs">
+            <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-300 bg-white p-3 border-2 border-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full max-w-sm">
               {/* Tape Effect */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-amber-100/90 border border-amber-300/80 rotate-[1deg] shadow-sm z-10" />
 
@@ -57,35 +56,18 @@ export default function AboutCard() {
                   src={wandemeImg}
                   alt="Wandeme Ipfi"
                   fill
-                  sizes="(max-width: 768px) 100vw, 300px"
+                  sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                  priority
                 />
               </div>
 
               <div className="pt-3 text-center font-typewriter">
                 <p className="text-xs font-bold text-zinc-900 uppercase tracking-wide">
-                  [ FIG. 01A — WANDEME IPFI ]
+                  [ FIG. 01 — WANDEME IPFI ]
                 </p>
                 <p className="text-[11px] text-zinc-500 italic mt-0.5">
                   &quot;Venda Pride &bull; Car Enthusiast &bull; Nap Master&quot;
-                </p>
-              </div>
-            </div>
-
-            {/* Cutout 2: Portrait.jpg */}
-            <div className="relative rotate-[2deg] hover:rotate-0 transition-transform duration-300 bg-white p-2.5 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(220,38,38,1)] w-full max-w-[220px]">
-              <div className="relative w-full aspect-square border border-zinc-900 overflow-hidden bg-zinc-100">
-                <Image
-                  src={portraitImg}
-                  alt="Wandeme Close Up"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 200px"
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-              <div className="pt-2 text-center font-typewriter">
-                <p className="text-[10px] font-bold text-red-600 uppercase tracking-wider">
-                  [ FIG. 01B — THE MAN HIMSELF ]
                 </p>
               </div>
             </div>
