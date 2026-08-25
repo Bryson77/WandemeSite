@@ -2,17 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MailOpen, Heart, Edit3, Check, Copy } from "lucide-react";
+import { Mail, MailOpen, Heart, Check, Copy } from "lucide-react";
 import confetti from "canvas-confetti";
 import Toast from "./Toast";
 
-export default function LetterSection() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-
-  const defaultLetter = `Brother man, you're pushing 30! 🤣 if only the little kid on the picture didn't wish to be older, you wouldn't be here 🙂‍↕️. Jokes aside, happy birthday Ipfi ❤️! I hope God blesses you with more wisdom as you grow. I hope He blesses you with money so that I don't have to worry about getting a degree 🤣, you're my only plan B (jk).
+const letterContent = `Brother man, you're pushing 30! 🤣 if only the little kid on the picture didn't wish to be older, you wouldn't be here 🙂‍↕️. Jokes aside, happy birthday Ipfi ❤️! I hope God blesses you with more wisdom as you grow. I hope He blesses you with money so that I don't have to worry about getting a degree 🤣, you're my only plan B (jk).
 
 Next time, I'm gonna get you an entire drum kit and the bass guitar that you've always wanted. Just keep my finances in prayer. 🥺🙏🏾
 
@@ -20,7 +14,10 @@ I know people that push 30 nag about their back most of the time, so today you'r
 
 I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
 
-  const [letterText, setLetterText] = useState(defaultLetter);
+export default function LetterSection() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -43,7 +40,7 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(letterText);
+    navigator.clipboard.writeText(letterContent);
     setCopied(true);
     showToast("Letter Copied");
     setTimeout(() => setCopied(false), 2000);
@@ -96,7 +93,7 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
               transition={{ duration: 0.25 }}
               className="w-full bg-white paper-texture p-6 sm:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-zinc-900 text-zinc-900"
             >
-              <div className="flex items-center justify-between border-b-2 border-zinc-900 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b-2 border-zinc-900 pb-3 mb-6">
                 <div className="flex items-center gap-2 text-zinc-900 font-bold text-xs sm:text-sm font-magazine">
                   <MailOpen className="w-4 h-4 text-zinc-900" />
                   <span>UNSEALED LETTER</span>
@@ -104,18 +101,21 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
 
                 <div className="flex items-center gap-2 font-typewriter">
                   <button
-                    onClick={() => setIsEditing(!isEditing)}
-                    className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-bold flex items-center gap-1 border border-zinc-900"
-                  >
-                    <Edit3 className="w-3.5 h-3.5" />
-                    <span>{isEditing ? "Done" : "Edit"}</span>
-                  </button>
-
-                  <button
                     onClick={handleCopy}
-                    className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-bold border border-zinc-900"
+                    className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-bold border border-zinc-900 flex items-center gap-1.5"
+                    title="Copy letter"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-zinc-900" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-zinc-900" />
+                        <span>Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copy</span>
+                      </>
+                    )}
                   </button>
 
                   <button
@@ -127,18 +127,9 @@ I love you Wandeme Ipfi Mamatsharaga and happy birthday! 🥳`;
                 </div>
               </div>
 
-              {isEditing ? (
-                <textarea
-                  value={letterText}
-                  onChange={(e) => setLetterText(e.target.value)}
-                  rows={10}
-                  className="w-full p-4 border-2 border-zinc-900 text-zinc-900 font-typewriter text-sm leading-relaxed bg-white focus:outline-none"
-                />
-              ) : (
-                <div className="space-y-4 text-zinc-900 leading-relaxed text-sm sm:text-base whitespace-pre-line font-typewriter p-1">
-                  {letterText}
-                </div>
-              )}
+              <div className="space-y-4 text-zinc-900 leading-relaxed text-sm sm:text-base whitespace-pre-line font-typewriter p-1">
+                {letterContent}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

@@ -5,7 +5,7 @@ import MusicCard from "@/components/MusicCard";
 import FootballCard from "@/components/FootballCard";
 import FavouritesGrid from "@/components/FavouritesGrid";
 import DreamCarCard from "@/components/DreamCarCard";
-// import LetterSection from "@/components/LetterSection";
+import LetterSection from "@/components/LetterSection";
 import { Heart } from "lucide-react";
 
 export default function Home() {
@@ -33,8 +33,8 @@ export default function Home() {
         {/* Dream Car (BMW 340i) Card */}
         <DreamCarCard />
 
-        {/* Letter Section (Temporarily commented out) */}
-        {/* <LetterSection /> */}
+        {/* Special Birthday Letter */}
+        <LetterSection />
       </div>
 
       {/* Footer */}
